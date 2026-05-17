@@ -1,0 +1,54 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFrameworks>net5.0;net6.0;net7.0;net8.0;net9.0;net10.0;netstandard2.0</TargetFrameworks>
+		<Nullable>enable</Nullable>
+		<PackageId>NeoIniLight</PackageId>
+		<Version>1.0.1</Version>
+		<Authors>Lonewolf239</Authors>
+		<Description>Lightweight, thread-safe INI configuration library for .NET. Supports .NET 5+ and .NET Standard 2.0.</Description>
+		<PackageTags>ini;config;encryption;ini-parser;configuration;secure-config;aes-ini;.NET5;.NET6;.NET7;.NET8;.NET9;.NET10;hot-reload;source-generator</PackageTags>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<RepositoryType>git</RepositoryType>
+		<RepositoryUrl>https://github.com/Lonewolf239/NeoIniLight</RepositoryUrl>
+		<PackageIcon>icon.png</PackageIcon>
+		<PackageReadmeFile>README-NUGET.md</PackageReadmeFile>
+		<Copyright>Copyright © Lonewolf239 2026</Copyright>
+		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<EnablePackageValidation>true</EnablePackageValidation>
+		<NuGetAudit>false</NuGetAudit>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+		<LangVersion>8.0</LangVersion>
+		<DefineConstants>NETSTANDARD2_0</DefineConstants>
+	</PropertyGroup>
+	<ItemGroup>
+		<Compile Remove="Generators\**" />
+		<Content Remove="Generators\**" />
+		<None Remove="Generators\**" />
+		<EmbeddedResource Remove="Generators\**" />
+		<Compile Remove="NeoIniDemo\**" />
+		<Content Remove="NeoIniDemo\**" />
+		<None Remove="NeoIniDemo\**" />
+		<EmbeddedResource Remove="NeoIniDemo\**" />
+		<Compile Remove="NeoIni.Tests\**" />
+		<Content Remove="NeoIni.Tests\**" />
+		<None Remove="NeoIni.Tests\**" />
+		<EmbeddedResource Remove="NeoIni.Tests\**" />
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="Generators\NeoIni.Generators.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+	</ItemGroup>
+	<ItemGroup>
+		<None Include="Generators\bin\$(Configuration)\netstandard2.0\NeoIni.Generators.dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
+	</ItemGroup>
+	<ItemGroup>
+		<None Include="icon.png" Pack="true" PackagePath="\" />
+		<None Include="docs\README-NUGET.md" Pack="true" PackagePath="\" />
+		<None Include="LICENSE" Pack="true" PackagePath="\" />
+	</ItemGroup>
+	<ItemGroup>
+	  <PackageReference Include="AsyncReaderWriterLock" Version="1.0.2" />
+	</ItemGroup>
+</Project>
