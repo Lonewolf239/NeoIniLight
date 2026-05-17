@@ -1,4 +1,4 @@
-# 📊 NeoIni Test Reports
+# 📊 NeoIniLight Test Reports
 
 ## Latest Report: ${TIMESTAMP}
 
