@@ -1,6 +1,6 @@
 # 📊 NeoIni Test Reports
 
-## Latest Report: 2026-05-17 12:59:27
+## Latest Report: 2026-05-17 13:00:27
 
 ### Statistics
 - ✅ Total Tests: 66
@@ -12,7 +12,7 @@
 
 ### 🎯 Status: **✅ All tests passed**
 
-[📈 View Detailed HTML Report](https://lonewolf239.github.io/NeoIni/)
+[📈 View Detailed HTML Report](https://lonewolf239.github.io/NeoIniLight/)
 
 ---
 
