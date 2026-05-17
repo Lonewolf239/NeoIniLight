@@ -25,6 +25,6 @@
 - Full async API support
 - Attribute-based mapping via source generator
 - Auto-save and auto-backup functionality
-- Thread-safe with AsyncReaderWriterLock
+- Thread-safe with `AsyncReaderWriterLock`
 
 </details>
