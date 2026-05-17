@@ -1,11 +1,11 @@
 [![NuGet](https://img.shields.io/nuget/v/NeoIniLight?style=for-the-badge&logo=nuget&logoColor=FFFFFF)](https://www.nuget.org/packages/NeoIniLight)
 [![Downloads](https://img.shields.io/nuget/dt/NeoIniLight?style=for-the-badge&logo=download&logoColor=FFFFFF)](https://www.nuget.org/packages/NeoIniLight)
 [![.NET 5+](https://img.shields.io/badge/.NET-5+-2D2D2D?style=for-the-badge&logo=dotnet&logoColor=FFFFFF)](https://dotnet.microsoft.com/)
-[![.NET Standard 2.0](https://img.shields.io/badge/.NET%20Standard-2.0-2D2D2D?style=for-the-badge&logo=dotnet&logoColor=FFFFFF)](https://learn.microsoft.com/ru-ru/dotnet/standard/net-standard?tabs=net-standard-2-0)
+[![.NET Standard 2.0](https://img.shields.io/badge/.NET%20Standard-2.0-2D2D2D?style=for-the-badge&logo=dotnet&logoColor=FFFFFF)](https://learn.microsoft.com/en-us/dotnet/standard/net-standard?tabs=net-standard-2-0)
 [![MIT](https://img.shields.io/badge/License-MIT-2D2D2D?style=for-the-badge&logo=open-source-initiative&logoColor=FFFFFF)](https://github.com/Lonewolf239/NeoIniLight/blob/main/LICENSE)
 
-[![Changelog](https://img.shields.io/badge/CHANGELOG-2D2D2D?style=for-the-badge&logo=history&logoColor=FFFFFF)](./CHANGELOG-RU.md)
-[![API](https://img.shields.io/badge/API-2D2D2D?style=for-the-badge&logo=readthedocs&logoColor=FFFFFF)](./API-RU.md)
+[![Changelog](https://img.shields.io/badge/CHANGELOG-2D2D2D?style=for-the-badge&logo=history&logoColor=FFFFFF)](./CHANGELOG.md)
+[![xUnit Tests](https://img.shields.io/badge/xUnit-Tests-2D2D2D?style=for-the-badge&logo=xunit&logoColor=FFFFFF)](https://lonewolf239.github.io/NeoIniLight/)
 
 ### Languages
 [![EN](https://img.shields.io/badge/README-EN-2D2D2D?style=for-the-badge&logo=github&logoColor=FFFFFF)](./README.md)
