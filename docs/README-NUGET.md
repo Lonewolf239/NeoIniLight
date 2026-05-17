@@ -8,7 +8,7 @@ Lightweight, thread-safe INI configuration library for .NET with atomic writes a
 dotnet add package NeoIniLight
 ```
 
-- **Version:** 1.0 | **.NET 5+** | **.NET Standard 2.0**
+- **Version:** 1.0.1 | **.NET 5+** | **.NET Standard 2.0**
 - **Developer:** [Lonewolf239](https://github.com/Lonewolf239)
 
 ---
