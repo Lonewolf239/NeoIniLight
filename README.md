@@ -1,6 +1,6 @@
-# 📊 NeoIni Test Reports
+# 📊 NeoIniLight Test Reports
 
-## Latest Report: 2026-05-17 13:05:42
+## Latest Report: 2026-05-17 13:08:55
 
 ### Statistics
 - ✅ Total Tests: 66
