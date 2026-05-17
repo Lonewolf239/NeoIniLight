@@ -5,7 +5,7 @@
 [![MIT](https://img.shields.io/badge/License-MIT-2D2D2D?style=for-the-badge&logo=open-source-initiative&logoColor=FFFFFF)](https://github.com/Lonewolf239/NeoIniLight/blob/main/LICENSE)
 
 [![Changelog](https://img.shields.io/badge/CHANGELOG-2D2D2D?style=for-the-badge&logo=history&logoColor=FFFFFF)](./CHANGELOG.md)
-[![API](https://img.shields.io/badge/API-2D2D2D?style=for-the-badge&logo=readthedocs&logoColor=FFFFFF)](./API.md)
+[![xUnit Tests](https://img.shields.io/badge/xUnit-Tests-2D2D2D?style=for-the-badge&logo=xunit&logoColor=FFFFFF)](https://lonewolf239.github.io/NeoIniLight/)
 
 ### Languages
 [![EN](https://img.shields.io/badge/README-EN-2D2D2D?style=for-the-badge&logo=github&logoColor=FFFFFF)](./README.md)
