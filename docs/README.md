@@ -13,14 +13,16 @@
 
 # NeoIniLight
 
-Lightweight, thread-safe INI configuration library for .NET with atomic writes and automatic backup support.
+**Lightweight, thread-safe configuration framework for .NET with INI-based persistence** — atomic writes, automatic backups, typed access, and full async API.
+
+> ⚠️ **Not a classic INI parser** – NeoIniLight is a **configuration management system** that uses the INI format as its storage layer. Files are managed by the library; manual editing may lead to unexpected behaviour. For hand‑editable INI files, consider using a simple key-value parser instead.
 
 ```bash
 dotnet add package NeoIniLight
 ```
 
 - **Package:** [nuget.org/packages/NeoIniLight](https://www.nuget.org/packages/NeoIniLight)
-- **Version:** 1.0.1 | **.NET 5+** | **.NET Standard 2.0**
+- **Version:** 1.0.2 | **.NET 5+** | **.NET Standard 2.0**
 - **Developer:** [Lonewolf239](https://github.com/Lonewolf239)
 
 ---
@@ -228,4 +230,8 @@ NeoIniLight is released under the **MIT** license.
 
 ## Philosophy
 
-**Black Box Design** — all internal logic is hidden behind the simple public API of `NeoIniDocument`. You work only with methods and events, without thinking about implementation details.
+**Black Box Design** — all internal logic is hidden behind the simple public API of `NeoIniDocument`. You work only with methods and events, without worrying about implementation details.
+
+**Why not just an INI parser?** – Classic INI parsers treat files as simple text and preserve user formatting. NeoIniLight, in contrast, **owns** the configuration file: it uses atomic writes (`.tmp` → replace), keeps a `.backup` fallback, and may inject metadata or warning comments to guarantee consistency. This makes it unsuitable for scenarios where users need to edit the file directly. If you need a pure, comment‑preserving INI parser, NeoIniLight is not the right tool.
+
+Thus, NeoIniLight is a **configuration subsystem** that happens to serialize to a human‑readable text format resembling INI — not a replacement for lightweight INI editors.

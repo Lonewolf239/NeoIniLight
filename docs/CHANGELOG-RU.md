@@ -4,6 +4,17 @@
 ## Changelog · NeoIniLight
 
 <details open>
+<summary><strong>1.0.2</strong> — 31 мая 2026</summary>
+
+#### List of changes
+
+- Исправлено описание: NeoIniLight — это конфигурационный фреймворк с INI-подобной сериализацией, а не классический парсер INI
+- Добавлено предупреждение в README о том, что файлами управляет библиотека
+- Уточнены теги и описание пакета в .csproj
+
+</details>
+
+<details>
 <summary><strong>1.0.1</strong> — 17 мая 2026</summary>
 
 #### List of changes

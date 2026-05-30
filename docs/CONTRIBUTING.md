@@ -11,7 +11,7 @@ NeoIniLight welcomes bug reports, feature requests, and pull requests. This guid
 
 Open a [GitHub Issue](https://github.com/Lonewolf239/NeoIniLight/issues) with:
 
-- **NeoIniLight version** (current: `1.0`) and **.NET version**.
+- **NeoIniLight version** (current: `1.0.2`) and **.NET version**.
 - **Minimal reproduction** — code snippet or repo that triggers the bug.
 - **Expected vs. actual behavior.**
 - **Stack trace** (if applicable).

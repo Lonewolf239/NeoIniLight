@@ -2,13 +2,15 @@
 
 # NeoIniLight
 
-Lightweight, thread-safe INI configuration library for .NET with atomic writes and automatic backup support.
+**Lightweight, thread-safe configuration framework for .NET with INI-based persistence** — atomic writes, automatic backups, typed access, and full async API.
+
+> ⚠️ **Not a classic INI parser** – NeoIniLight is a **configuration management system** that uses the INI format as its storage layer. Files are managed by the library; manual editing may lead to unexpected behaviour. For hand‑editable INI files, consider using a simple key-value parser instead.
 
 ```bash
 dotnet add package NeoIniLight
 ```
 
-- **Version:** 1.0.1 | **.NET 5+** | **.NET Standard 2.0**
+- **Version:** 1.0.2 | **.NET 5+** | **.NET Standard 2.0**
 - **Developer:** [Lonewolf239](https://github.com/Lonewolf239)
 
 ---

@@ -9,13 +9,19 @@ using NeoIniLight.Models;
 namespace NeoIniLight
 {
     /// <summary>
-    /// Lightweight, thread-safe INI configuration library for .NET with file-level atomic writes and automatic backup support.
+    /// Provides a lightweight, thread-safe configuration management framework with INI-based persistence.
+    /// <para>
+    /// <b>Important:</b> This is NOT a classic INI parser. It is a configuration system that uses the INI format 
+    /// as its serialization layer, adding atomic writes, automatic backup, thread safety, and change tracking.
+    /// Files written in standard mode are managed by the library and may include auto-generated comments or 
+    /// warnings, making them unsuitable for direct manual editing without losing structure.
+    /// </para>
     /// <br/>
     /// Developer: <a href="https://github.com/Lonewolf239">Lonewolf239</a>
     /// <br/>
     /// <b>Target Frameworks: .NET 5+ and .NET Standard 2.0</b>
     /// <br/>
-    /// <b>Version: 1.0.1</b>
+    /// <b>Version: 1.0.2</b>
     /// <br/>
     /// <b>Black Box Philosophy:</b> This class follows a strict "black box" design principle - users interact only through the public API without needing to understand internal implementation details. Input goes in, processed output comes out, internals remain hidden and abstracted.
     /// </summary>
@@ -25,7 +31,7 @@ namespace NeoIniLight
     public partial class NeoIniDocument : IDisposable, IAsyncDisposable
 #endif
     {
-        /// <summary>Returns the INI data formatted as it would appear in the file</summary>
+        /// <summary>Returns the configuration data formatted as it would appear in the underlying INI file.</summary>
         /// <returns>
         /// A string containing the serialized INI content of this instance,
         /// formatted exactly as it would be written to the underlying file.

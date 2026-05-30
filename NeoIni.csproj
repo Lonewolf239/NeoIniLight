@@ -3,10 +3,10 @@
 		<TargetFrameworks>net5.0;net6.0;net7.0;net8.0;net9.0;net10.0;netstandard2.0</TargetFrameworks>
 		<Nullable>enable</Nullable>
 		<PackageId>NeoIniLight</PackageId>
-		<Version>1.0.1</Version>
+		<Version>1.0.2</Version>
 		<Authors>Lonewolf239</Authors>
-		<Description>Lightweight, thread-safe INI configuration library for .NET. Supports .NET 5+ and .NET Standard 2.0.</Description>
-		<PackageTags>ini;config;encryption;ini-parser;configuration;secure-config;aes-ini;.NET5;.NET6;.NET7;.NET8;.NET9;.NET10;hot-reload;source-generator</PackageTags>
+		<Description>Lightweight, thread-safe configuration framework for .NET with INI-like persistence, atomic writes, automatic backups, and source generators. Supports .NET 5+ and .NET Standard 2.0.</Description>
+		<PackageTags>config;configuration;ini-serialization;lightweight;atomic-writes;backup;thread-safe;source-generator;dotnet-config</PackageTags>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<RepositoryType>git</RepositoryType>
@@ -32,10 +32,10 @@
 		<Content Remove="NeoIniDemo\**" />
 		<None Remove="NeoIniDemo\**" />
 		<EmbeddedResource Remove="NeoIniDemo\**" />
-		<Compile Remove="NeoIni.Tests\**" />
-		<Content Remove="NeoIni.Tests\**" />
-		<None Remove="NeoIni.Tests\**" />
-		<EmbeddedResource Remove="NeoIni.Tests\**" />
+		<Compile Remove="NeoIniLight.Tests\**" />
+		<Content Remove="NeoIniLight.Tests\**" />
+		<None Remove="NeoIniLight.Tests\**" />
+		<EmbeddedResource Remove="NeoIniLight.Tests\**" />
 	</ItemGroup>
 	<ItemGroup>
 		<ProjectReference Include="Generators\NeoIni.Generators.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
