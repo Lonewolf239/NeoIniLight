@@ -7,7 +7,7 @@ namespace NeoIniLight.Models
     /// </summary>
     /// <remarks>
     /// These options control how the document will handle automatic saving, backup creation, missing keys,
-    /// checksum validation and saving on dispose. They are read and applied during <see cref="NeoIniDocument"/>
+    /// and saving on dispose. They are read and applied during <see cref="NeoIniDocument"/>
     /// initialization and do not affect instances that have already been created.
     /// </remarks>
     public sealed class NeoIniOptions
@@ -49,7 +49,7 @@ namespace NeoIniLight.Models
         public bool AllowEmptyValues { get; set; } = true;
 
         /// <summary>
-        /// Default behavior: automatic saving and backups enabled, checksum validation on,
+        /// Default behavior: automatic saving and backups enabled,
         /// missing keys are added automatically and configuration is saved on dispose.
         /// </summary>
         public static NeoIniOptions Default => new NeoIniOptions();
@@ -61,7 +61,7 @@ namespace NeoIniLight.Models
         public static NeoIniOptions Safe => new NeoIniOptions() { UseAutoAdd = false };
 
         /// <summary>
-        /// High-performance behavior: disables automatic saving, backups, checksum validation,
+        /// High-performance behavior: disables automatic saving, backups,
         /// automatic key creation and saving on dispose. The caller is responsible for
         /// explicitly saving changes when appropriate.
         /// </summary>

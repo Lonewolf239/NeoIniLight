@@ -22,7 +22,7 @@ dotnet add package NeoIniLight
 ```
 
 - **Пакет:** [nuget.org/packages/NeoIniLight](https://www.nuget.org/packages/NeoIniLight)
-- **Версия:** 1.0.2 | **.NET 5+** | **.NET Standard 2.0**
+- **Версия:** 1.0.3 | **.NET 5+** | **.NET Standard 2.0**
 - **Разработчик:** [Lonewolf239](https://github.com/Lonewolf239)
 
 ---

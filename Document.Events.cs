@@ -5,10 +5,10 @@ namespace NeoIniLight
 {
     public partial class NeoIniDocument
     {
-        /// <summary>Called before saving a file to disk</summary>
+        /// <summary>Called after the configuration has been saved to disk</summary>
         public event EventHandler? Saved;
 
-        /// <summary>Called after successfully loading data from a file or reloading</summary>
+        /// <summary>Called after successfully reloading data via <see cref="Reload"/> or <see cref="ReloadAsync"/></summary>
         public event EventHandler? Loaded;
 
         /// <summary>Called when the value of an existing key in a section changes</summary>

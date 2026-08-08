@@ -6,7 +6,7 @@ namespace NeoIniLight.Providers
     {
         internal NeoIniFileProvider(string? filePath)
         {
-            if (filePath is null) throw new ArgumentNullException("File path cannot be null.");
+            if (filePath is null) throw new ArgumentNullException(nameof(filePath), "File path cannot be null.");
             FilePath = filePath;
         }
     }

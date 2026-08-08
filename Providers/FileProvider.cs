@@ -68,7 +68,7 @@ namespace NeoIniLight.Providers
             string? currentSection = null;
             for (int i = 0; i < lines.Length; i++)
             {
-                var trimmed = lines[i].Trim();
+                var trimmed = lines[i].Trim(' ', '\t', '\u00A0', '\u200B');
                 if (string.IsNullOrEmpty(trimmed)) continue;
                 if (NeoIniParser.IsSectionLine(trimmed))
                 {

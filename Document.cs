@@ -21,7 +21,7 @@ namespace NeoIniLight
     /// <br/>
     /// <b>Target Frameworks: .NET 5+ and .NET Standard 2.0</b>
     /// <br/>
-    /// <b>Version: 1.0.2</b>
+    /// <b>Version: 1.0.3</b>
     /// <br/>
     /// <b>Black Box Philosophy:</b> This class follows a strict "black box" design principle - users interact only through the public API without needing to understand internal implementation details. Input goes in, processed output comes out, internals remain hidden and abstracted.
     /// </summary>
@@ -46,54 +46,75 @@ namespace NeoIniLight
         }
 
         /// <summary>Releases managed resources and saves changes to the file</summary>
+        /// <remarks>
+        /// Never throws: if the final save fails, the exception is traced via <see cref="System.Diagnostics.Trace"/>
+        /// and reported through <see cref="Error"/> when a handler is attached, but it is not propagated to the caller.
+        /// </remarks>
         public void Dispose()
         {
             try { Dispose(true); }
-#if DEBUG
-            catch (Exception ex) { System.Diagnostics.Trace.WriteLine($"NeoIni: Save on dispose failed: {ex.Message}"); }
-#else
-            catch { }
-#endif
+            catch (Exception ex)
+            {
+                System.Diagnostics.Trace.WriteLine($"NeoIniLight: Save on dispose failed: {ex.Message}");
+                try { Provider.RaiseError(this, new ProviderErrorEventArgs(ex)); } catch { }
+            }
             GC.SuppressFinalize(this);
         }
 
 #if !NETSTANDARD2_0
         /// <summary>Asynchronously releases managed resources and saves changes to the file</summary>
+        /// <remarks>
+        /// Never throws: if the final save fails, the exception is traced via <see cref="System.Diagnostics.Trace"/>
+        /// and reported through <see cref="Error"/> when a handler is attached, but it is not propagated to the caller.
+        /// </remarks>
         public async ValueTask DisposeAsync()
         {
             try { await DisposeAsync(true).ConfigureAwait(false); }
-#if DEBUG
-            catch (Exception ex) { System.Diagnostics.Trace.WriteLine($"NeoIni: Save on dispose failed: {ex.Message}"); }
-#else
-            catch { }
-#endif
+            catch (Exception ex)
+            {
+                System.Diagnostics.Trace.WriteLine($"NeoIniLight: Save on dispose failed: {ex.Message}");
+                try { Provider.RaiseError(this, new ProviderErrorEventArgs(ex)); } catch { }
+            }
             GC.SuppressFinalize(this);
         }
 #endif
 
-        /// <summary>Saves the current data to an INI file with checksums and encryption applied, if enabled</summary>
+        /// <summary>Saves the current data to an INI file</summary>
+        /// <remarks>Safe to call concurrently with other saves (automatic or manual, sync or async); the actual write is serialized internally.</remarks>
         public void SaveFile()
         {
             ThrowIfDisposed();
+            SaveGate.Wait();
             try
             {
                 string content = GetSaveContent();
                 Provider.Save(content);
             }
-            finally { FinalizeSave(); }
+            finally
+            {
+                SaveGate.Release();
+                FinalizeSave();
+            }
         }
 
         /// <summary>Asynchronously saves the current data to the INI file</summary>
+        /// <param name="cancellationToken">Cancellation token.</param>
+        /// <remarks>Safe to call concurrently with other saves (automatic or manual, sync or async); the actual write is serialized internally.</remarks>
         public async Task SaveFileAsync(CancellationToken cancellationToken = default)
         {
             ThrowIfDisposed();
             cancellationToken.ThrowIfCancellationRequested();
+            await SaveGate.WaitAsync(cancellationToken).ConfigureAwait(false);
             try
             {
                 string content = await GetSaveContentAsync(cancellationToken).ConfigureAwait(false);
                 await Provider.SaveAsync(content, cancellationToken).ConfigureAwait(false);
             }
-            finally { FinalizeSave(); }
+            finally
+            {
+                SaveGate.Release();
+                FinalizeSave();
+            }
         }
 
         /// <summary>Determines whether a specific section exists in the loaded data</summary>
@@ -147,7 +168,7 @@ namespace NeoIniLight
             catch (InvalidOperationException e)
             {
                 Provider.RaiseError(this, new ProviderErrorEventArgs(e));
-                return;
+                throw;
             }
             DoAutoSave();
         }
@@ -168,7 +189,7 @@ namespace NeoIniLight
             catch (InvalidOperationException e)
             {
                 Provider.RaiseError(this, new ProviderErrorEventArgs(e));
-                return;
+                throw;
             }
             await DoAutoSaveAsync(cancellationToken).ConfigureAwait(false);
         }
@@ -433,7 +454,7 @@ namespace NeoIniLight
         public async Task SetValuesAsync(NeoIniValue[] values, CancellationToken cancellationToken = default)
         {
             foreach (var value in values)
-                await SetValueHelperAsync<string>(value.Section, value.Key, value.Value).ConfigureAwait(false);
+                await SetValueHelperAsync<string>(value.Section, value.Key, value.Value, cancellationToken).ConfigureAwait(false);
             await DoAutoSaveAsync(cancellationToken).ConfigureAwait(false);
         }
 
@@ -571,7 +592,7 @@ namespace NeoIniLight
             catch (InvalidOperationException e)
             {
                 Provider.RaiseError(this, new ProviderErrorEventArgs(e));
-                return;
+                throw;
             }
             DoAutoSave();
         }
@@ -591,7 +612,7 @@ namespace NeoIniLight
             catch (InvalidOperationException e)
             {
                 Provider.RaiseError(this, new ProviderErrorEventArgs(e));
-                return;
+                throw;
             }
             await DoAutoSaveAsync(cancellationToken).ConfigureAwait(false);
         }
@@ -609,7 +630,7 @@ namespace NeoIniLight
             catch (InvalidOperationException e)
             {
                 Provider.RaiseError(this, new ProviderErrorEventArgs(e));
-                return;
+                throw;
             }
             DoAutoSave();
         }
@@ -628,7 +649,7 @@ namespace NeoIniLight
             catch (InvalidOperationException e)
             {
                 Provider.RaiseError(this, new ProviderErrorEventArgs(e));
-                return;
+                throw;
             }
             await DoAutoSaveAsync(cancellationToken).ConfigureAwait(false);
         }

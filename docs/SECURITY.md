@@ -19,7 +19,8 @@ NeoIniLight follows a tiered support model:
 
 | Version | Status | Support |
 |---------|--------|---------|
-| 1.0.2 | **CSR** | Security patches + bug fixes |
+| 1.0.3 | **CSR** | Security patches + bug fixes |
+| 1.0.2 | **LSR** | Available for download |
 | 1.0.1 | **LSR** | Available for download |
 | 1.0 | **DSR** | Incomplete, buggy, or deprecated versions. |
 

@@ -4,6 +4,24 @@
 ## Changelog · NeoIniLight
 
 <details open>
+<summary><strong>1.0.3</strong> — August 8, 2026</summary>
+
+#### List of changes
+
+- **Fixed a file-write race condition**: `SaveFile`/`SaveFileAsync` (including the implicit save on `Dispose`/`DisposeAsync`) are now serialized through an internal gate, so concurrent saves can no longer interleave their writes to the same file
+- **Fixed silently dropped auto-saves under concurrency**: an auto-save request that arrived while another save was already running is no longer discarded — it is coalesced and retried
+- **Fixed `AddKey`/`RenameKey`/`RenameSection`** (and their async counterparts) always throwing after reporting the error via the `Error` event, instead of silently no-oping when a handler is attached
+- **Fixed `SetValuesAsync`** not propagating its `cancellationToken` to the per-item write, so cancellation could be ignored mid-batch
+- **Fixed a malformed `ArgumentNullException`** thrown by the internal file provider when the file path is `null` (the message was passed as `paramName`)
+- **Fixed inconsistent whitespace trimming** between the sync and async file-parsing paths, which could make `GetData()`/`GetDataAsync()` disagree on the same file
+- Fixed `Dispose`/`DisposeAsync` silently swallowing a failed final save in Release builds instead of tracing it and reporting it via `Error`
+- Corrected the `Saved` event's documentation (fires *after* saving, not before) and `Loaded` (only on `Reload`/`ReloadAsync`, not on construction-time load)
+- Removed stale references to checksum validation from `NeoIniOptions` documentation — NeoIniLight has no checksum feature
+- Bumped `AsyncReaderWriterLock` dependency to 1.0.3 (fixes a disposed-lock race in the async slow path)
+
+</details>
+
+<details>
 <summary><strong>1.0.2</strong> — May 31, 2026</summary>
 
 #### List of changes

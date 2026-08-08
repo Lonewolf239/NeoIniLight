@@ -86,7 +86,8 @@ namespace NeoIniLight.Models
         /// </param>
         public NeoIniValue(string? section, string? key, object? value)
         {
-            if (section is null || key is null) throw new ArgumentNullException();
+            if (section is null) throw new ArgumentNullException(nameof(section));
+            if (key is null) throw new ArgumentNullException(nameof(key));
             Section = section;
             Key = key;
             if (value is IFormattable formattable) Value = formattable.ToString(null, CultureInfo.InvariantCulture);
