@@ -12,7 +12,7 @@ Map INI configuration to typed C# classes with zero reflection overhead. NeoIniL
 Decorate properties with `NeoIniKeyAttribute`. The attribute takes two required constructor parameters (`Section`, `Key`) and one optional property (`DefaultValue`).
 
 ```csharp
-using NeoIni.Annotations;
+using NeoIniLight.Annotations;
 
 namespace MyApp.Config;
 

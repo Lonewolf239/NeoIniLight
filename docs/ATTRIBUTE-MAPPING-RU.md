@@ -12,7 +12,7 @@
 Пометьте свойства атрибутом `NeoIniKeyAttribute`. Атрибут принимает два обязательных параметра конструктора (`Section`, `Key`) и одно необязательное свойство (`DefaultValue`).
 
 ```csharp
-using NeoIni.Annotations;
+using NeoIniLight.Annotations;
 
 namespace MyApp.Config;
 

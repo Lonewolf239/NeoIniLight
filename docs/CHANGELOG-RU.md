@@ -4,6 +4,19 @@
 ## Changelog · NeoIniLight
 
 <details open>
+<summary><strong>1.0.4</strong> — 8 августа 2026</summary>
+
+#### List of changes
+
+- **Исправлен `API-RU.md`**: в нём были задокументированы `UseChecksum`, `UseShielding`, пресет `ReadOnly` и событие `ChecksumMismatch` — ничего из этого в NeoIniLight нет, файл оказался устаревшей копией API-справки полного NeoIni
+- Исправлен неверный namespace в примерах `ATTRIBUTE-MAPPING.md`/`-RU.md` (`NeoIni.Annotations` вместо `NeoIniLight.Annotations`)
+- Исправлено примечание в `API.md`/`-RU.md` про необработанные события — исключение бросают только ошибки провайдера (через `Error`) и `AddKey`/`RenameKey`/`RenameSection`, остальные события просто ничего не делают, если на них никто не подписан
+- Исправлено указание `SetValues`/`SetValuesAsync` как generic-методов (`SetValues<T>`) в `API.md`/`-RU.md` — на деле они принимают обычный `NeoIniValue[]`
+- Обновлена устаревшая версия `1.0.2` в `CONTRIBUTING.md`/`-RU.md`
+
+</details>
+
+<details>
 <summary><strong>1.0.3</strong> — 8 августа 2026</summary>
 
 #### List of changes

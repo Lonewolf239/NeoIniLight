@@ -15,7 +15,7 @@ Complete reference for all public methods, options, and events exposed by `NeoIn
 | `GetValueClamped<T>` | Read typed value and clamp it between min/max | `GetValueClampedAsync<T>` |
 | `TryGetValue<T>` | Read typed value without modifying the file and without AutoAdd | – |
 | `SetValue<T>` | Set/create key-value | `SetValueAsync<T>` |
-| `SetValues<T>` | Set/create multiple key-value pairs (bulk) | `SetValuesAsync<T>` |
+| `SetValues` | Set/create multiple key-value pairs (bulk) | `SetValuesAsync` |
 | `SetValueClamped<T>` | Set/create key-value and clamp it within range | `SetValueClampedAsync<T>` |
 | `AddSection` | Create section if missing | `AddSectionAsync` |
 | `AddKey<T>` | Add unique key-value | `AddKeyAsync<T>` |
@@ -77,4 +77,4 @@ Complete reference for all public methods, options, and events exposed by `NeoIn
 | `SearchCompleted` | Called after each search with the pattern and match count |
 | `Error` | Called when errors occur (parsing, saving, reading, etc.) |
 
-> **Note:** If no handlers are subscribed to an event, the provider (by default) throws an exception. For silent handling, always subscribe to `Error`.
+> **Note:** Provider-level failures (file I/O) are reported via the `Error` event; if nothing is subscribed, the underlying exception is thrown instead. `AddKey`, `RenameKey`, and `RenameSection` (and their async versions) always throw `InvalidOperationException` on a conflict — they additionally notify `Error` when it has a subscriber, but subscribing does not suppress the exception.
