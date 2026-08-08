@@ -4,6 +4,17 @@
 ## Changelog · NeoIniLight
 
 <details open>
+<summary><strong>1.0.5</strong> — August 8, 2026</summary>
+
+#### List of changes
+
+- **Fixed a compile-breaking constructor bug**: `NeoIniDocument(string?, NeoIniOptions?, bool)` required an explicit `options` argument even though its own documentation, `CreateAsync`, and every other constructor in the library treat it as optional. `new NeoIniDocument("config.ini")` — the single most common way to create a document — did not compile.
+- Fixed the bundled demo project (`NeoIniDemo`) referencing a stale published `NeoIniLight 1.0` package instead of the local source, which is what hid the constructor bug from ever being caught by building the demo.
+- Corrected the README event count (14 events, not 12 — `DataCleared` was missing from the tally).
+
+</details>
+
+<details>
 <summary><strong>1.0.4</strong> — August 8, 2026</summary>
 
 #### List of changes

@@ -22,7 +22,7 @@ dotnet add package NeoIniLight
 ```
 
 - **Пакет:** [nuget.org/packages/NeoIniLight](https://www.nuget.org/packages/NeoIniLight)
-- **Версия:** 1.0.4 | **.NET 5+** | **.NET Standard 2.0**
+- **Версия:** 1.0.5 | **.NET 5+** | **.NET Standard 2.0**
 - **Разработчик:** [Lonewolf239](https://github.com/Lonewolf239)
 
 ---
@@ -58,7 +58,7 @@ dotnet add package NeoIniLight
 | 🗺️ | **Object mapping** | Source-generated `Get<T>()` / `Set<T>()` для POCO-классов через `NeoIniKeyAttribute`. |
 | 📡 | **Full async API** | Асинхронные версии всех основных операций — `CreateAsync`, `GetValueAsync`, `SaveFileAsync` и т.д. |
 | 🔍 | **Search & TryGet** | Регистронезависимый поиск по ключам/значениям. `TryGetValue<T>` читает без модификации файла. |
-| 📢 | **Rich event system** | 12 событий: сохранение, загрузка, CRUD ключей/секций, autosave, ошибки, завершение поиска. |
+| 📢 | **Rich event system** | 14 событий: сохранение, загрузка, CRUD ключей/секций, очистка данных, autosave, ошибки, завершение поиска. |
 | 📦 | **Black-box design** | Единая точка входа — `NeoIniDocument` владеет и управляет всем за чистым публичным API. |
 
 ---

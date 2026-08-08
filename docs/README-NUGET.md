@@ -10,7 +10,7 @@
 dotnet add package NeoIniLight
 ```
 
-- **Version:** 1.0.4 | **.NET 5+** | **.NET Standard 2.0**
+- **Version:** 1.0.5 | **.NET 5+** | **.NET Standard 2.0**
 - **Developer:** [Lonewolf239](https://github.com/Lonewolf239)
 
 ---
@@ -23,7 +23,7 @@ dotnet add package NeoIniLight
 - 🗺️ **Object mapping** — Source-generated `Get<T>()` / `Set<T>()` via `NeoIniKeyAttribute`
 - 📡 **Full async API** — `CreateAsync`, `GetValueAsync`, `SaveFileAsync`, etc.
 - 🔍 **Search & TryGet** — Case-insensitive search, side-effect-free reads
-- 📢 **Rich event system** — 12 events for save, load, CRUD, errors, search completion
+- 📢 **Rich event system** — 14 events for save, load, CRUD, data clearing, errors, search completion
 
 ---
 

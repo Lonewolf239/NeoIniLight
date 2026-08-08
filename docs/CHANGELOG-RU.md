@@ -4,6 +4,17 @@
 ## Changelog · NeoIniLight
 
 <details open>
+<summary><strong>1.0.5</strong> — 8 августа 2026</summary>
+
+#### List of changes
+
+- **Исправлен ломающий сборку баг конструктора**: `NeoIniDocument(string?, NeoIniOptions?, bool)` требовал явный аргумент `options`, хотя его же собственная документация, `CreateAsync` и все остальные конструкторы библиотеки трактуют его как опциональный. `new NeoIniDocument("config.ini")` — самый распространённый способ создать документ — не компилировался вообще.
+- Исправлена ссылка демо-проекта (`NeoIniDemo`) на устаревший опубликованный пакет `NeoIniLight 1.0` вместо локального кода — именно это скрывало баг конструктора от обнаружения при сборке демки.
+- Исправлено количество событий в README (14, а не 12 — в подсчёт не попадал `DataCleared`).
+
+</details>
+
+<details>
 <summary><strong>1.0.4</strong> — 8 августа 2026</summary>
 
 #### List of changes

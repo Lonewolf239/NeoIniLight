@@ -18,7 +18,7 @@ namespace NeoIniLight
         /// If <c>true</c>, the configuration data is loaded synchronously from the file during construction.
         /// If <c>false</c>, you must call <see cref="Reload"/> or <see cref="ReloadAsync"/> explicitly.
         /// </param>
-        public NeoIniDocument(string? path, NeoIniOptions? options, bool autoLoad = true)
+        public NeoIniDocument(string? path, NeoIniOptions? options = null, bool autoLoad = true)
         {
             Data = new Dictionary<string, Dictionary<string, string>>();
             FilePath = path;

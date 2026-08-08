@@ -6,6 +6,7 @@
 		<Nullable>disable</Nullable>
 	</PropertyGroup>
 	<ItemGroup>
-		<PackageReference Include="NeoIniLight" Version="1.0" />
+		<ProjectReference Include="..\NeoIni.csproj" />
+		<ProjectReference Include="..\Generators\NeoIni.Generators.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
 	</ItemGroup>
 </Project>
